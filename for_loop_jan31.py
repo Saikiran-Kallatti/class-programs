@@ -27,20 +27,27 @@ for r in range (1,r+1):
 
 n = int(input("enter the range:"))
 a = {}
-flag = 0
+empty_flag = 0
 i = 1
-while (flag != 1):
+for i in range(1,n+1):
     k = int(input("enter the key: "))
     v = input("enter the value :")
 
-    if len(list(a.keys())==0):
+    if empty_flag ==0:
+        empty_flag = 1
         a[k] = v
+        continue
 
     if k in a:
         print("key already exists,  kindly enter distinct key")
-        continue;
+        i = i-1
+        continue
 
-    a[k] = v
+    if k-1 in a:
+        a[k+1] = v
+        continue
+    else:
+        a[k]=a[v]
 
 
 print(a)
